@@ -1,0 +1,15 @@
+{
+  "name": "rpni3-tp1-formulaire",
+  "version": "1.0.0",
+  "description": "<!--  Ce fichier README.md est une documentation de base permettant de vous orienter dans la configuration idéale de votre projet.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch src/scss:public/css",
+    "build": "sass src/scss:dist/css --style=expanded --source-map"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "normalize.scss": "^0.1.0"
+  }
+}
