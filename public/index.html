@@ -8,7 +8,66 @@
 </head>
 
 <body>
-    
+    <h1> Formulaire de don </h1>
+
+    <form>
+        <h2> Vos coordonnées </h2>
+
+        <fieldset> 
+            <fieldset>
+                <legend>Informations personnelles</legend> 
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom">
+
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom">
+
+                    <label for="naissance">Date de naissance</label>
+                    <input type="date" id="naissance" name="naissance">
+
+                    <label for="telephone"> Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="(xxx) xxx-xxxx">
+             </fieldset>
+
+             <fieldset>
+                <legend>Adresse</legend> 
+                    <label for="pays">Pays :</label>
+                    <select id="pays" name="pays">
+                        <option value="choisir" disabled selected>Choisir un pays</option>
+                        <option value="canada">Canada</option>
+                        <option value="etatsunis">États-Unis</option>
+                        <option value="france">France</option>
+                        <option value="mexique">Mexique</option>
+                    </select>
+
+                    <label for="province">Province :</label>
+                    <select id="province" name="province">
+                        <option value="choisir" disabled selected>Choisir une province</option>
+                        <option value="alberta">Alberta</option>
+                        <option value="colombiebritanique">Colombie-Britanique</option>
+                        <option value="ileduprinceedouard">Île-du-Prince-Édouard</option>
+                        <option value="manitoba">Manitoba</option>
+                        <option value="nouveaubrunswick">Nouveau-Brunswick</option>
+                        <option value="nouvelleecosse">Nouvelle-Écosse</option>
+                        <option value="nunavut">Nunavut</option>
+                        <option value="ontario">Ontario</option>
+                        <option value="quebec">Québec</option>
+                        <option value="terreneuve">Terre-Neuve</option>
+                        <option value="territoiredunordouest">Territoire du Nord-Ouest</option>
+                        <option value="yukon">Yukon</option>
+                    </select>
+
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="1234 rue Exemple">
+
+                    <label for="ville">Ville :</label>
+                    <input type="text" id="ville" name="ville">
+
+                    <label for="codepostal">Code postal :</label>
+                    <input type="text" id="codepostal" name="codepostal" placeholder="A1A 1A1">
+             </fieldset>
+        </fieldset>
+    </form>
 </body>
 
 </html>
