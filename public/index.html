@@ -1,73 +1,214 @@
+ <!-- Commentaires 
+
+  1. Le logo n'a pas été trouvé en SVG. Seulement les icones dans les inputs (intégré via css) seront en SVG.
+
+  2. Je fais le BEM petit à petit, parce que je ne l'avais pas fait au début. Pour l'instant, j'ai fait le header et le main.
+  
+  -->
+
+
 <!DOCTYPE html>
 <html lang="fr-CA">
 
 <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulaire de don pour la course à obstacles MudGirl">
+    <meta name="keywords" content="Course, Formulaire, Don, Femmes, Obstacles, MudGirl">
+    <meta name="author" content="Laurie Roy">
+    <title>Formulaire de don MudGirl</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <h1> Formulaire de don </h1>
+    <header class="header">
+        <div class="header__banderole"> </div>
+        <img src="./img/logo_mudgirl.png" alt="logo MudGirl" class="header__logo">
+    </header>
 
-    <form>
-        <h2> Vos coordonnées </h2>
 
-        <fieldset> 
+    <!-- Main -->
+    <main class="main">
+    <h1 class="main__titre"> Formulaire de don </h1>
+    
+     <!-- Étapes navigation via liens -->
+    <nav class="etapesNavigation" aria-label="Progression du formulaire de don">
+        <ol>
+            <li>
+                <a class="etapes__item etapes__item--active" aria-current="step" href="#etape1">
+                <span class="hors-ecran">Étape 1 de 4</span>
+                Don
+                </a>
+            </li>
+            <li>
+                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape2">
+                <span class="hors-ecran">Étape 2 de 4</span>
+                Coordonnées
+                </a>
+            </li>
+            <li>
+                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape3">
+                <span class="hors-ecran">Étape 3 de 4</span>
+                Paiement
+                </a>
+            </li>
+            <li>
+                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape4">
+                <span class="hors-ecran">Étape 4 de 4</span>
+                Résumé
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Formulaire -->
+    <form class="formulaire">
+            <input type="radio" class="formulaire__hors-ecran" id="donUnique" name="donBoutons" value="donUnique" checked>
+            <label for="donUnique" class="formulaire__label">Don unique</label>
+
+            <input type="radio" class="formulaire__hors-ecran" id="donFrequent" name="donBoutons" value="donFrequent">
+            <label for="donFrequent" class="formulaire__label">Don fréquent </label>
+
             <fieldset>
-                <legend>Informations personnelles</legend> 
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom">
+                <!-- Étape 1 de 4 -->
+                <legend><h2>Montant du don souhaité</h2></legend> 
+                    <input type="radio" id="cinquente" name="montant" class="montant" value="50" checked>
+                    <label for="cinquente">50$</label>
+                        
+                    <input type="radio" id="soixenteQuinze" name="montant" class="montant" value="75">
+                    <label for="soixenteQuinze">75$</label>
+                            
+                    <input type="radio" id="cent" name="montant" class="montant" value="100">
+                    <label for="cent">100$</label>
+                            
+                    <input type="radio" id="deuxCent" name="montant" class="montant" value="200">
+                    <label for="deuxCent">200$</label>
+                            
+                    <label for="autreMontant">Autre montant :</label>
+                    <input type="number" id="autreMontant" name="autreMontant" class="autreMontant" placeholder="Autre montant" min="1" step="1">
 
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom">
-
-                    <label for="naissance">Date de naissance</label>
-                    <input type="date" id="naissance" name="naissance">
-
-                    <label for="telephone"> Numéro de téléphone</label>
-                    <input type="tel" id="telephone" name="telephone" placeholder="(xxx) xxx-xxxx">
-             </fieldset>
-
-             <fieldset>
-                <legend>Adresse</legend> 
-                    <label for="pays">Pays :</label>
-                    <select id="pays" name="pays">
-                        <option value="choisir" disabled selected>Choisir un pays</option>
-                        <option value="canada">Canada</option>
-                        <option value="etatsunis">États-Unis</option>
-                        <option value="france">France</option>
-                        <option value="mexique">Mexique</option>
+                    <label for="frequence" class="donFrequent cacher">Fréquence </label>
+                    <select id="frequence" name="frequence" class="donFrequent cacher">
+                        <option value="choisir" disabled selected>Choisir une fréquence</option>
+                        <option value="annee">Une fois par année</option>
+                        <option value="mois">Une fois par mois </option>
                     </select>
+            </fieldset> 
 
-                    <label for="province">Province :</label>
-                    <select id="province" name="province">
-                        <option value="choisir" disabled selected>Choisir une province</option>
-                        <option value="alberta">Alberta</option>
-                        <option value="colombiebritanique">Colombie-Britanique</option>
-                        <option value="ileduprinceedouard">Île-du-Prince-Édouard</option>
-                        <option value="manitoba">Manitoba</option>
-                        <option value="nouveaubrunswick">Nouveau-Brunswick</option>
-                        <option value="nouvelleecosse">Nouvelle-Écosse</option>
-                        <option value="nunavut">Nunavut</option>
-                        <option value="ontario">Ontario</option>
-                        <option value="quebec">Québec</option>
-                        <option value="terreneuve">Terre-Neuve</option>
-                        <option value="territoiredunordouest">Territoire du Nord-Ouest</option>
-                        <option value="yukon">Yukon</option>
-                    </select>
+            <fieldset class="cacher">
+                <!-- Étape 2 de 4 -->
+                <legend><h2>Informations personnelles</h2></legend> 
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="prenom" autocomplete="given-name" pattern="^[a-zA-ZÀ-ÿ' -]+$" required>
+                        <div id="erreurPrenom" class="erreur" aria-live="polite"></div>
 
-                    <label for="adresse">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="1234 rue Exemple">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" autocomplete="family-name" pattern="^[a-zA-ZÀ-ÿ' -]+$" required>
+                        <div id="erreurNom" class="erreur" aria-live="polite"></div>
 
-                    <label for="ville">Ville :</label>
-                    <input type="text" id="ville" name="ville">
+                        <label for="courriel">Courriel :</label>
+                        <input type="email" id="courriel" name="courriel" autocomplete="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" required>
+                        <div id="erreurCourriel" class="erreur" aria-live="polite"></div>
 
-                    <label for="codepostal">Code postal :</label>
-                    <input type="text" id="codepostal" name="codepostal" placeholder="A1A 1A1">
-             </fieldset>
-        </fieldset>
+                        <label for="telephone"> Numéro de téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" placeholder="(xxx) xxx-xxxx" autocomplete="tel" pattern="^\(?([0-9]{3})\)?[ ]?([0-9]{3})[-]?([0-9]{4})$" required>
+                        <div id="erreurTelephone" class="erreur" aria-live="polite"></div>
+
+                    <h3> Adresse postale</h3>
+                        <label for="adresse">Adresse municipale</label>
+                        <input type="text" id="adresse" name="adresse"  autocomplete="street-address" pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$">
+                        <div id="erreurAdresse" class="erreur" aria-live="polite"></div>
+
+                        <label for="ville">Ville :</label>
+                        <input type="text" id="ville" name="ville" autocomplete="address-level2" pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$" required>
+                        <div id="erreurVille" class="erreur" aria-live="polite"></div>
+
+                        <!-- À changer par Json -->
+                        <label for="pays">Pays :</label>
+                        <select id="pays" name="pays" autocomplete="country-name">
+                            <option value="choisir" disabled selected>Choisir un pays</option>
+                            <option value="canada">Canada</option>
+                            <option value="etatsunis">États-Unis</option>
+                            <option value="france">France</option>
+                            <option value="mexique">Mexique</option>
+                        </select>
+
+                        <!-- À changer par Json -->
+                        <label for="province">Province :</label>
+                        <select id="province" name="province">
+                            <option value="choisir" disabled selected>Choisir une province</option>
+                            <option value="alberta">Alberta</option>
+                            <option value="colombiebritanique">Colombie-Britanique</option>
+                            <option value="ileduprinceedouard">Île-du-Prince-Édouard</option>
+                            <option value="manitoba">Manitoba</option>
+                            <option value="nouveaubrunswick">Nouveau-Brunswick</option>
+                            <option value="nouvelleecosse">Nouvelle-Écosse</option>
+                            <option value="nunavut">Nunavut</option>
+                            <option value="ontario">Ontario</option>
+                            <option value="quebec">Québec</option>
+                            <option value="terreneuve">Terre-Neuve</option>
+                            <option value="territoiredunordouest">Territoire du Nord-Ouest</option>
+                            <option value="yukon">Yukon</option>
+                        </select>
+
+                            <label for="codepostal">Code postal :</label>
+                            <input type="text" id="codepostal" name="codepostal" 
+                                placeholder="A1A 1A1" autocomplete="postal-code" pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" maxlength="7" required>
+                                <div id="erreurPostal" class="erreur" aria-live="polite"></div>
+            </fieldset>
+
+            <fieldset class="cacher">
+                    <!-- Étape 3 de 4 -->
+                    <legend><h2>Payement</h2></legend> 
+
+                            <input type="radio" id="carteCreditBouton" name="carteCreditBouton" value="carteCreditBouton" checked>
+                            <label for="carteCreditBouton">Carte de crédit</label>
+                            <div id="erreurCredit" class="erreur" aria-live="polite"></div>
+
+                            <label for="nomCarte">Nom du titulaire de la carte:</label>
+                            <input type="text" id="nomCarte" name="nomCarte" pattern="^[a-zA-ZÀ-ÿ]+$"
+                                    autocomplete="cc-name" required>
+                                    <div id="erreurNomCarte" class="erreur" aria-live="polite"></div>
+
+                            <label for="carteCredit">Numéro de carte de crédit :</label>
+                            <input type="tel" inputmode="numeric" name="carteCredit" id="carteCredit"
+                                    pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" autocomplete="cc-number" maxlength="19" required>
+                                    <div id="erreurNumero" class="erreur" aria-live="polite"></div>
+        
+                            <label for="dateExpiration">Date d'expiration :</label>
+                            <input type="month" id="dateExpiration" name="dateExpiration" 
+                                    min="2024-06" autocomplete="cc-exp" required>
+                                    <div id="erreurExpiration" class="erreur" aria-live="polite"></div>
+        
+                            <label for="codeVerification">Code de vérification :</label>
+                            <input type="text" id="codeVerification" name="codeVerification" 
+                                    autocomplete="cc-csc" pattern="\d{3,4}" maxlength="4" required>
+                                    <div id="erreurCode" class="erreur" aria-live="polite"></div>
+
+                        <h3> Détails de facturation </h3>
+                            <input type="checkbox" id="verificationUn" name="verifications" value="verificationUn" required>
+                            <label for="verificationUn">Mon adresse de facturation est la même que mon adresse postale.</label>
+
+                            <input type="checkbox" id="verificationDeux" name="verifications" value="verificationDeux" required>
+                            <label for="verificationDeux">J'accepte les conditions d'utilisation.</label>
+            </fieldset>
+
+            <fieldset class="cacher">
+                    <!-- Étape 4 de 4 -->
+                    <legend> <h2>Résumé des informations</h2></legend> 
+                    <p> Mettre infos client ici</p>
+                    
+            </fieldset>
+
+        <div>
+                <!-- Boutons de navigation -->
+                <input type="submit" id="soumettre" name="soumettre" value="Soumettre le don" class="cacher">
+                <input type="button" id="precedent" name="precedent" value="Précédent">
+                <input type="button" id="suivant" name="suivant" value="Suivant">
+        </div>
     </form>
+    </main>
 </body>
-
 </html>

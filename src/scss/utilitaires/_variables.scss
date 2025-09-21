@@ -10,10 +10,10 @@
 
 /** Polices de caractères **/
 
-@font-face {
-  font-family: Futura, sans-serif;
-  src: 	url('../fonts/Futura.ttc') format('truetype');
-}
+
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap');
+
+
 
 $fontePrimaire : Futura, sans-serif;
 $fonteSecondaire : Arial, sans-serif;
@@ -28,6 +28,8 @@ $bleuPale: #68a8e8;
 $vertLime: #bbd531;
 $bleuMinuit: #012d61;
 $bleuMarin: #2678B5;
+$rose: #D764A1;
+$roseFonce: #BF387A;
 
 $bleuMoyenTransparent : color.adjust($bleuMoyen, $alpha: -0.50);
 

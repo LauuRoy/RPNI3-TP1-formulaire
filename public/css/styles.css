@@ -37,10 +37,7 @@
 * @todo Utiliser le sélecteur & pour les sélecteurs des différentes couleurs
 */
 /** Polices de caractères **/
-@font-face {
-  font-family: Futura, sans-serif;
-  src: url("../fonts/Futura.ttc") format("truetype");
-}
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap");
 /** Palette de couleurs **/
 /* Couleurs de base */
 /* Autres couleurs */
@@ -120,31 +117,31 @@
 * @author Prenom Nom courriel
 * @todo Compléter selon l'énoncé de l'exercice
 */
-.bouton {
+.button {
   background-color: #bbd531;
   border-radius: 18px;
   color: black;
   padding: 0.5em 1em;
   text-decoration: none;
 }
-.bouton:after {
+.button:after {
   content: "»";
   margin-left: 0.4em;
 }
-.bouton--hover {
+.button--hover {
   background-color: rgba(187, 213, 49, 0.75);
 }
-.bouton--active {
+.button--active {
   background-color: rgba(187, 213, 49, 0.5);
 }
-.bouton--inverse {
+.button--inverse {
   background-color: white;
   border: 2px solid #bbd531;
 }
-.bouton--inverse--hover {
+.button--inverse--hover {
   border-color: rgba(187, 213, 49, 0.75);
 }
-.bouton--inverse--active {
+.button--inverse--active {
   border-color: rgba(187, 213, 49, 0.5);
 }
 
@@ -366,6 +363,136 @@ h3--desktop,
     width: 100%;
   }
 }
-/** MODULES **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cacher {
+  display: none;
+}
+
+.hors-ecran {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.etapes__item {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.etapes__item--inactive {
+  color: black;
+  pointer-events: none;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.etapes__item--active {
+  color: #9D339E;
+}
+
+.header {
+  background-color: #0C0149;
+  height: 200px;
+  max-width: 100%;
+  text-align: center;
+  align-items: center;
+}
+.header__banderole {
+  background-image: linear-gradient(to right, #7B2DC3, #9D339E, #F33E4E);
+  height: 55px;
+  width: 100%;
+}
+.header__logo {
+  max-width: 200px;
+  object-fit: cover;
+  margin-top: 3.5vh;
+}
+
+main {
+  margin: 10px;
+  text-align: center;
+}
+main__titre {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 40rem;
+  font-style: normal;
+}
+
+input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type=radio] + label {
+  border-radius: 8px;
+  background: #D764A1;
+  display: inline-block;
+  color: white;
+  font-family: "Inter", sans-serif;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: 1px inset #BF387A;
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+input[type=radio]:checked + label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+input[name=montant] + label {
+  width: 180px;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+input[name=montant]:checked + label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+.autreMontant {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+}
+
+label[for=autreMontant],
+.autreMontant {
+  display: block;
+  margin-top: 15px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.autreMontant {
+  height: 40px;
+  padding-right: 45px;
+  background: url("/public/img/material-symbols--attach-money.svg") no-repeat right center;
+  background-size: 20px 20px;
+}
 
 /*# sourceMappingURL=styles.css.map */

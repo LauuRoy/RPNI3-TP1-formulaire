@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cacher {
+      display: none;
+    }
+
+    .hors-ecran{
+        position: absolute;
+        width: 1px; 
+        height: 1px; 
+        padding: 0; 
+        margin: -1px; 
+        overflow: hidden; 
+        clip-path: inset(50%); 
+        white-space: nowrap; 
+        border-width: 0; 
+    }
+
+    .etapes__item {
+        color: black;
+        text-decoration: underline; 
+        cursor: pointer; 
+    }
+    .etapes__item--inactive {
+        color: black;
+        pointer-events: none; 
+        cursor: not-allowed; 
+        text-decoration: none; 
+    }
+    .etapes__item--active {
+        color: #9D339E;
+    }
+
+
+.header{
+    background-color: #0C0149;
+    height: 200px;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;  
+
+
+&__banderole{
+    background-image: linear-gradient(to right, #7B2DC3, #9D339E, #F33E4E);
+    height: 55px;
+    width: 100%;
+}
+
+&__logo{
+    max-width: 200px;
+    object-fit: cover ;
+    margin-top: 3.5vh;
+  }
+}
+
+main{
+    margin: 10px;
+    text-align: center;
+
+&__titre{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 40rem;
+    font-style: normal;
+  }
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+input[type=radio] + label {
+  border-radius: 8px;
+  background: #D764A1;
+  display: inline-block;
+  color: white;
+  font-family: "Inter", sans-serif;
+  padding: 10px 20px;
+  margin-top: 15px;
+
+  border: 1px inset #BF387A;
+  display: block;
+  width: 100%;
+ text-align: center;
+  cursor: pointer;
+}
+ 
+
+input[type=radio]:checked + label {
+    background: #A61461;
+    outline: 3px solid #771A47;
+}
+
+input[name="montant"] + label {
+    width: 180px;
+    margin-right: 5px;
+  border-radius: 10px;   
+  display: inline-block;
+}
+
+input[name="montant"]:checked + label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+.autreMontant {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+}
+
+label[for="autreMontant"],
+.autreMontant {
+  display: block;              
+  margin-top: 15px;  
+  text-align: left;
+  margin-bottom: 5px;  
+}
+
+.autreMontant {
+  height: 40px;
+  padding-right: 45px;
+  background: url("/public/img/material-symbols--attach-money.svg") no-repeat right center;
+  background-size: 20px 20px;
+}
+
+
+
+
+
