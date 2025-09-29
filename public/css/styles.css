@@ -38,6 +38,7 @@
 */
 /** Polices de caractères **/
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap");
 /** Palette de couleurs **/
 /* Couleurs de base */
 /* Autres couleurs */
@@ -113,36 +114,51 @@
 /** LIBRAIRIES **/
 /* Normalize */
 /** UTILITAIRES **/
-/**
-* @author Prenom Nom courriel
-* @todo Compléter selon l'énoncé de l'exercice
-*/
-.button {
-  background-color: #bbd531;
-  border-radius: 18px;
-  color: black;
-  padding: 0.5em 1em;
+.formulaire__Zone-boutons-bleu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.formulaire__Zone-boutons-bleu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  background-color: #0C0149;
+  width: 170px;
+  height: 50px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
-.button:after {
-  content: "»";
-  margin-left: 0.4em;
+.formulaire__Zone-boutons-bleu-button__icon {
+  width: 30px;
+  height: 30px;
+  transform: rotate(135deg);
 }
-.button--hover {
-  background-color: rgba(187, 213, 49, 0.75);
+.formulaire__Zone-boutons-bleu-button__icon__precedent {
+  width: 30px;
+  height: 30px;
+  transform: rotate(-45deg);
 }
-.button--active {
-  background-color: rgba(187, 213, 49, 0.5);
-}
-.button--inverse {
-  background-color: white;
-  border: 2px solid #bbd531;
-}
-.button--inverse--hover {
-  border-color: rgba(187, 213, 49, 0.75);
-}
-.button--inverse--active {
-  border-color: rgba(187, 213, 49, 0.5);
+.formulaire__Zone-boutons-bleu-button__modifier {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  width: 150px;
+  height: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-color: #D764A1;
 }
 
 /**
@@ -235,7 +251,7 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Abel, sans-serif;
   font-size: 16px; /* 16px pour toutes les largeurs d'écran */
   font-size: 1.6rem;
   line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
@@ -246,7 +262,7 @@ h2,
 .titreNiveau2,
 h3,
 .titreNiveau3 {
-  font-family: Futura, sans-serif;
+  font-family: Bebas Neue, sans-serif;
   font-weight: 500;
 }
 
@@ -299,7 +315,7 @@ h3--desktop,
 }
 
 .texte {
-  font-family: Arial, sans-serif;
+  font-family: Abel, sans-serif;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.375;
@@ -363,6 +379,7 @@ h3--desktop,
     width: 100%;
   }
 }
+/** BASE **/
 * {
   margin: 0;
   padding: 0;
@@ -382,24 +399,7 @@ h3--desktop,
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
-  border-width: 0;
-}
-
-.etapes__item {
-  color: black;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.etapes__item--inactive {
-  color: black;
-  pointer-events: none;
-  cursor: not-allowed;
-  text-decoration: none;
-}
-
-.etapes__item--active {
-  color: #9D339E;
+  border: 0;
 }
 
 .header {
@@ -430,6 +430,146 @@ main__titre {
   font-style: normal;
 }
 
+.etapes__liste {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.etapes__liste__elements__item {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.etapes__liste__elements__item--inactive {
+  color: black;
+  pointer-events: none;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+.etapes__liste__elements__item--active {
+  color: #9D339E;
+}
+
+#etape1 {
+  border: none;
+}
+
+#etape3 {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.formulaire fieldset {
+  margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+  .formulaire fieldset {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.formulaire__champ {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  height: 40px;
+}
+.formulaire__champ--prenom {
+  background: url("/public/img/individu.svg") no-repeat right center;
+  background-size: 25px 25px;
+}
+.formulaire__champ--nom {
+  background: url("/public/img/individu.svg") no-repeat right center;
+  background-size: 25px 25px;
+}
+.formulaire__champ--courriel {
+  background: url("/public/img/mail.svg") no-repeat right center;
+  background-size: 25px 25px;
+}
+.formulaire__champ--telephone {
+  background: url("/public/img/telephone.svg") no-repeat right center;
+  background-size: 25px 25px;
+  max-width: 300px;
+}
+.formulaire__champ--nomCarte {
+  background: url("/public/img/carte.svg") no-repeat right center;
+  background-size: 25px 25px;
+}
+
+.formulaire__champ__petit__grille {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media (min-width: 600px) {
+  .formulaire__champ,
+  .formulaire__champ__petit__grille {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.formulaire__champ__bloc {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+.formulaire__champ__bloc label {
+  text-align: left;
+}
+
+.formulaire__champ__petit {
+  width: 100%;
+  height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.formulaire__champ__petit--cvv {
+  width: 80%;
+}
+.formulaire__champ__petit--expiration {
+  width: 80%;
+}
+
+.formulaire__label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+}
+.formulaire__label--nom, .formulaire__label--prenom, .formulaire__label--courriel, .formulaire__label--adresse {
+  margin-left: 25px;
+}
+.formulaire__label--telephone {
+  margin-left: 95px;
+}
+.formulaire__label--conditions {
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  .formulaire__label {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 input[type=radio] {
   position: absolute;
   opacity: 0;
@@ -451,6 +591,15 @@ input[type=radio] + label {
   cursor: pointer;
 }
 
+@media (min-width: 800px) {
+  input[type=radio] + label {
+    width: 280px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+}
 input[type=radio]:checked + label {
   background: #A61461;
   outline: 3px solid #771A47;
@@ -468,31 +617,52 @@ input[name=montant]:checked + label {
   outline: 3px solid #771A47;
 }
 
-.autreMontant {
+label[for=autreMontant] {
   display: block;
-  margin-top: 15px;
-  width: 100%;
-  max-width: 300px;
+  margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
+  max-width: 366px;
+}
+
+.autreMontant {
+  display: block;
+  width: 90%;
+  max-width: 366px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #000000;
-}
-
-label[for=autreMontant],
-.autreMontant {
-  display: block;
-  margin-top: 15px;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-.autreMontant {
   height: 40px;
   padding-right: 45px;
   background: url("/public/img/material-symbols--attach-money.svg") no-repeat right center;
   background-size: 20px 20px;
+}
+
+.frequence {
+  width: 90%;
+  max-width: 366px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  height: 40px;
+  background-size: 20px 20px;
+}
+
+input[type=checkbox] {
+  position: static;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=styles.css.map */

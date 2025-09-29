@@ -1,73 +1,232 @@
+// Css Utilitaire
+@use "../base/bouton";
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .cacher {
-      display: none;
-    }
+  display: none;
+}
 
-    .hors-ecran{
-        position: absolute;
-        width: 1px; 
-        height: 1px; 
-        padding: 0; 
-        margin: -1px; 
-        overflow: hidden; 
-        clip-path: inset(50%); 
-        white-space: nowrap; 
-        border-width: 0; 
-    }
+.hors-ecran {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
-    .etapes__item {
-        color: black;
-        text-decoration: underline; 
-        cursor: pointer; 
-    }
-    .etapes__item--inactive {
-        color: black;
-        pointer-events: none; 
-        cursor: not-allowed; 
-        text-decoration: none; 
-    }
-    .etapes__item--active {
-        color: #9D339E;
-    }
+// Css Global
+.header {
+  background-color: #0C0149;
+  height: 200px;
+  max-width: 100%;
+  text-align: center;
+  align-items: center;
 
 
-.header{
-    background-color: #0C0149;
-    height: 200px;
-    max-width: 100%;
-    text-align: center;
-    align-items: center;  
-
-
-&__banderole{
+  &__banderole {
     background-image: linear-gradient(to right, #7B2DC3, #9D339E, #F33E4E);
     height: 55px;
     width: 100%;
-}
+  }
 
-&__logo{
+  &__logo {
     max-width: 200px;
-    object-fit: cover ;
+    object-fit: cover;
     margin-top: 3.5vh;
   }
 }
 
-main{
-    margin: 10px;
-    text-align: center;
+main {
+  margin: 10px;
+  text-align: center;
 
-&__titre{
+  &__titre {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 40rem;
     font-style: normal;
   }
 }
 
+// Étapes
+.etapes {
+  &__liste {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+
+
+    &__elements {
+
+      &__item {
+        color: black;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &--inactive {
+          color: black;
+          pointer-events: none;
+          cursor: not-allowed;
+          text-decoration: none;
+        }
+
+        &--active {
+          color: #9D339E;
+        }
+      }
+    }
+  }
+}
+
+#etape1 {
+  border: none;
+}
+
+#etape3 {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+//Formulaire
+.formulaire fieldset {
+  margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+  .formulaire fieldset {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.formulaire__champ {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  height: 40px;
+
+  &--prenom {
+    background: url("/public/img/individu.svg") no-repeat right center;
+    background-size: 25px 25px;
+  }
+
+  &--nom {
+    background: url("/public/img/individu.svg") no-repeat right center;
+    background-size: 25px 25px;
+  }
+
+  &--courriel {
+    background: url("/public/img/mail.svg") no-repeat right center;
+    background-size: 25px 25px;
+  }
+
+  &--telephone {
+    background: url("/public/img/telephone.svg") no-repeat right center;
+    background-size: 25px 25px;
+    max-width: 300px;
+  }
+
+  &--nomCarte {
+    background: url("/public/img/carte.svg") no-repeat right center;
+    background-size: 25px 25px;
+  }
+
+}
+
+.formulaire__champ__petit__grille {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media (min-width: 600px) {
+
+  .formulaire__champ,
+  .formulaire__champ__petit__grille {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.formulaire__champ__bloc {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+
+  & label {
+    text-align: left;
+  }
+}
+
+.formulaire__champ__petit {
+  width: 100%;
+  height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  box-sizing: border-box;
+
+  &--cvv {
+    width: 80%;
+  }
+
+  &--expiration {
+    width: 80%;
+  }
+}
+
+.formulaire__label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+
+  &--nom,
+  &--prenom,
+  &--courriel,
+  &--adresse {
+    margin-left: 25px;
+  }
+
+  &--telephone {
+    margin-left: 95px;
+  }
+
+  &--conditions {
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .formulaire__label {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Input et montant
 input[type="radio"] {
   position: absolute;
   opacity: 0;
@@ -75,7 +234,7 @@ input[type="radio"] {
 }
 
 
-input[type=radio] + label {
+input[type=radio]+label {
   border-radius: 8px;
   background: #D764A1;
   display: inline-block;
@@ -87,56 +246,82 @@ input[type=radio] + label {
   border: 1px inset #BF387A;
   display: block;
   width: 100%;
- text-align: center;
+  text-align: center;
   cursor: pointer;
 }
- 
 
-input[type=radio]:checked + label {
-    background: #A61461;
-    outline: 3px solid #771A47;
+@media (min-width: 800px) {
+  input[type=radio]+label {
+    width: 280px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
 }
 
-input[name="montant"] + label {
-    width: 180px;
-    margin-right: 5px;
-  border-radius: 10px;   
-  display: inline-block;
-}
-
-input[name="montant"]:checked + label {
+input[type=radio]:checked+label {
   background: #A61461;
   outline: 3px solid #771A47;
 }
 
-.autreMontant {
+input[name="montant"]+label {
+  width: 180px;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+input[name="montant"]:checked+label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+label[for="autreMontant"] {
   display: block;
-  margin-top: 15px;
-  width: 100%;
-  max-width: 300px;
+  margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
+  max-width: 366px;
+}
+
+.autreMontant {
+  display: block;
+  width: 90%;
+  max-width: 366px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #000000;
-}
-
-label[for="autreMontant"],
-.autreMontant {
-  display: block;              
-  margin-top: 15px;  
-  text-align: left;
-  margin-bottom: 5px;  
-}
-
-.autreMontant {
   height: 40px;
   padding-right: 45px;
   background: url("/public/img/material-symbols--attach-money.svg") no-repeat right center;
   background-size: 20px 20px;
 }
 
+.frequence {
+  width: 90%;
+  max-width: 366px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  height: 40px;
+  background-size: 20px 20px;
+}
 
+input[type="checkbox"] {
+  position: static;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  justify-content: flex-start;
 
-
-
+}

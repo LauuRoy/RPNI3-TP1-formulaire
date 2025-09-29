@@ -12,11 +12,11 @@
 
 
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Sora:wght@100..800&family=Uncial+Antiqua&display=swap');
 
 
-
-$fontePrimaire : Futura, sans-serif;
-$fonteSecondaire : Arial, sans-serif;
+$fontePrimaire : Bebas Neue, sans-serif;
+$fonteSecondaire : Abel, sans-serif;
 
 /** Palette de couleurs **/
 // Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
@@ -28,8 +28,13 @@ $bleuPale: #68a8e8;
 $vertLime: #bbd531;
 $bleuMinuit: #012d61;
 $bleuMarin: #2678B5;
-$rose: #D764A1;
+
+$rosePale: #D764A1;
 $roseFonce: #BF387A;
+$Noir: #000000;
+$BleuFonce: #0C0149;
+$Blanc: #ffffff;
+
 
 $bleuMoyenTransparent : color.adjust($bleuMoyen, $alpha: -0.50);
 

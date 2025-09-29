@@ -1,35 +1,75 @@
 @use "sass:color";
 @use "../utilitaires/variables";
 
-/**
-* @author Prenom Nom courriel
-* @todo Compléter selon l'énoncé de l'exercice
-*/
+.formulaire__Zone-boutons{
+  &-bleu{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  
+  &-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  gap: 1.5em;                 
 
-.button {
-  background-color: variables.$vertLime;
-  border-radius: 18px;
-  color: black;
-  padding: 0.5em 1em;
+  background-color: variables.$BleuFonce;
+  width: 170px;
+  height: 50px;
+  border-radius: 8px;
+  color: variables.$Blanc;
+  font-weight: 700;
   text-decoration: none;
-  &:after {
-    content: "»";
-    margin-left: 0.4em;
+  border: none;
+  cursor: pointer;
+
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    transform: rotate(135deg);
   }
-  &--hover {
-    background-color: color.adjust(variables.$vertLime, $alpha: -0.25);
-  }
-  &--active {
-    background-color: color.adjust(variables.$vertLime, $alpha: -0.5);
-  }
-  &--inverse {
-    background-color: white;
-    border: 2px solid variables.$vertLime;
-    &--hover {
-      border-color: color.adjust(variables.$vertLime, $alpha: -0.25);
-    }
-    &--active {
-      border-color: color.adjust(variables.$vertLime, $alpha: -0.5);
-    }
-  }
+
+  &__icon__precedent{
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+
 }
+  &__modifier{
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    gap: 1.5em;                 
+
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    color: variables.$Blanc;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background-color: variables.$rosePale;
+  }}
+  }}
+    
+
+  
+  // &--hover {
+  //   background-color: color.adjust(variables.$vertLime, $alpha: -0.25);
+  // }
+  // &--active {
+  //   background-color: color.adjust(variables.$vertLime, $alpha: -0.5);
+  // }
+  // &--inverse {
+  //   background-color: white;
+  //   border: 2px solid variables.$vertLime;
+  //   &--hover {
+  //     border-color: color.adjust(variables.$vertLime, $alpha: -0.25);
+  //   }
+  //   &--active {
+  //     border-color: color.adjust(variables.$vertLime, $alpha: -0.5);
+  //   }
+  // }

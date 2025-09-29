@@ -1,10 +1,10 @@
- <!-- Commentaires 
-
-  1. Le logo n'a pas été trouvé en SVG. Seulement les icones dans les inputs (intégré via css) seront en SVG.
-
-  2. Je fais le BEM petit à petit, parce que je ne l'avais pas fait au début. Pour l'instant, j'ai fait le header et le main.
-  
-  -->
+<!-- À revoir dans le code :
+ 1. Fieldset à l'étape 2 (informations personnelles)
+ 2. Message d'erreurs (Ne rentre pas dans la boucle pour paiement)
+ 3. Navigation entre les étapes 
+ 4. Ajustement css à quelques endroits
+ 5. Décocher boutons
+-->
 
 
 <!DOCTYPE html>
@@ -31,113 +31,129 @@
 
     <!-- Main -->
     <main class="main">
-    <h1 class="main__titre"> Formulaire de don </h1>
-    
-     <!-- Étapes navigation via liens -->
-    <nav class="etapesNavigation" aria-label="Progression du formulaire de don">
-        <ol>
-            <li>
-                <a class="etapes__item etapes__item--active" aria-current="step" href="#etape1">
-                <span class="hors-ecran">Étape 1 de 4</span>
-                Don
-                </a>
-            </li>
-            <li>
-                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape2">
-                <span class="hors-ecran">Étape 2 de 4</span>
-                Coordonnées
-                </a>
-            </li>
-            <li>
-                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape3">
-                <span class="hors-ecran">Étape 3 de 4</span>
-                Paiement
-                </a>
-            </li>
-            <li>
-                <a class="etapes__item etapes__item--inactive" aria-disabled="true" href="#etape4">
-                <span class="hors-ecran">Étape 4 de 4</span>
-                Résumé
-                </a>
-            </li>
-        </ol>
-    </nav>
+        <h1 class="main__titre"> Formulaire de don </h1>
 
-    <!-- Formulaire -->
-    <form class="formulaire">
-            <input type="radio" class="formulaire__hors-ecran" id="donUnique" name="donBoutons" value="donUnique" checked>
-            <label for="donUnique" class="formulaire__label">Don unique</label>
+        <!-- Étapes navigation via liens -->
+        <nav class="etapes" aria-label="Progression du formulaire de don">
+            <ol class="etapes__liste">
+                <li class="etapes__liste__elements">
+                    <a class="etapes__liste__elements__item etapes__liste__elements__item--active" aria-current="step"
+                        href="#etape1">
+                        <span class="hors-ecran">Étape 1 de 4</span>
+                        Don
+                    </a>
+                </li>
+                <li class="etapes__liste__elements">
+                    <a class="etapes__liste__elements__item etapes__liste__elements__item--inactive"
+                        aria-disabled="true" href="#etape2">
+                        <span class="hors-ecran">Étape 2 de 4</span>
+                        Coordonnées
+                    </a>
+                </li>
+                <li class="etapes__liste__elements">
+                    <a class="etapes__liste__elements__item etapes__liste__elements__item--inactive"
+                        aria-disabled="true" href="#etape3">
+                        <span class="hors-ecran">Étape 3 de 4</span>
+                        Paiement
+                    </a>
+                </li>
+                <li class="etapes__liste__elements">
+                    <a class="etapes__liste__elements__item etapes__liste__elements__item--inactive"
+                        aria-disabled="true" href="#etape4">
+                        <span class="hors-ecran">Étape 4 de 4</span>
+                        Résumé
+                    </a>
+                </li>
+            </ol>
+        </nav>
 
-            <input type="radio" class="formulaire__hors-ecran" id="donFrequent" name="donBoutons" value="donFrequent">
-            <label for="donFrequent" class="formulaire__label">Don fréquent </label>
+        <form class="formulaire">
+            <!-- Étape 1 de 4 -->
+            <!-- Type de don -->
+            <fieldset id="etape1" class="cacher">
+                <input type="radio" class="formulaire__hors-ecran cacher" id="donUnique" name="donBoutons"
+                    value="donUnique" checked>
+                <label for="donUnique" class="formulaire__label">Don unique</label>
 
-            <fieldset>
-                <!-- Étape 1 de 4 -->
-                <legend><h2>Montant du don souhaité</h2></legend> 
-                    <input type="radio" id="cinquente" name="montant" class="montant" value="50" checked>
-                    <label for="cinquente">50$</label>
-                        
-                    <input type="radio" id="soixenteQuinze" name="montant" class="montant" value="75">
-                    <label for="soixenteQuinze">75$</label>
-                            
-                    <input type="radio" id="cent" name="montant" class="montant" value="100">
-                    <label for="cent">100$</label>
-                            
-                    <input type="radio" id="deuxCent" name="montant" class="montant" value="200">
-                    <label for="deuxCent">200$</label>
-                            
-                    <label for="autreMontant">Autre montant :</label>
-                    <input type="number" id="autreMontant" name="autreMontant" class="autreMontant" placeholder="Autre montant" min="1" step="1">
+                <input type="radio" class="formulaire__hors-ecran cacher" id="donFrequent" name="donBoutons"
+                    value="donFrequent">
+                <label for="donFrequent" class="formulaire__label">Don fréquent</label>
+            </fieldset>
 
-                    <label for="frequence" class="donFrequent cacher">Fréquence </label>
-                    <select id="frequence" name="frequence" class="donFrequent cacher">
-                        <option value="choisir" disabled selected>Choisir une fréquence</option>
-                        <option value="annee">Une fois par année</option>
-                        <option value="mois">Une fois par mois </option>
-                    </select>
-            </fieldset> 
+            <!--  Montant -->
+            <fieldset id="etape1 etape1_montant" class="cacher">
+                <legend>Montant du don souhaité</legend>
 
-            <fieldset class="cacher">
-                <!-- Étape 2 de 4 -->
-                <legend><h2>Informations personnelles</h2></legend> 
-                        <label for="prenom">Prénom :</label>
-                        <input type="text" id="prenom" name="prenom" autocomplete="given-name" pattern="^[a-zA-ZÀ-ÿ' -]+$" required>
-                        <div id="erreurPrenom" class="erreur" aria-live="polite"></div>
+                <input type="radio" id="cinquante" name="montant" class="montant" value="50" checked>
+                <label for="cinquante">50$</label>
 
-                        <label for="nom">Nom :</label>
-                        <input type="text" id="nom" name="nom" autocomplete="family-name" pattern="^[a-zA-ZÀ-ÿ' -]+$" required>
-                        <div id="erreurNom" class="erreur" aria-live="polite"></div>
+                <input type="radio" id="soixanteQuinze" name="montant" class="montant" value="75">
+                <label for="soixanteQuinze">75$</label>
 
-                        <label for="courriel">Courriel :</label>
-                        <input type="email" id="courriel" name="courriel" autocomplete="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" required>
-                        <div id="erreurCourriel" class="erreur" aria-live="polite"></div>
+                <input type="radio" id="cent" name="montant" class="montant" value="100">
+                <label for="cent">100$</label>
 
-                        <label for="telephone"> Numéro de téléphone</label>
-                        <input type="tel" id="telephone" name="telephone" placeholder="(xxx) xxx-xxxx" autocomplete="tel" pattern="^\(?([0-9]{3})\)?[ ]?([0-9]{3})[-]?([0-9]{4})$" required>
-                        <div id="erreurTelephone" class="erreur" aria-live="polite"></div>
+                <input type="radio" id="deuxCent" name="montant" class="montant" value="200">
+                <label for="deuxCent">200$</label>
 
-                    <h3> Adresse postale</h3>
-                        <label for="adresse">Adresse municipale</label>
-                        <input type="text" id="adresse" name="adresse"  autocomplete="street-address" pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$">
-                        <div id="erreurAdresse" class="erreur" aria-live="polite"></div>
+                <label for="autreMontant">Autre montant :</label>
+                <input type="number" id="autreMontant" name="autreMontant" class="autreMontant"
+                    placeholder="Inscrire un montant" min="1" step="1">
 
-                        <label for="ville">Ville :</label>
-                        <input type="text" id="ville" name="ville" autocomplete="address-level2" pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$" required>
-                        <div id="erreurVille" class="erreur" aria-live="polite"></div>
+                <select id="frequence" name="frequence" class="frequence cacher">
+                    <option value="choisir" disabled selected>Choisir une fréquence</option>
+                    <option value="annee">Une fois par année</option>
+                    <option value="mois">Une fois par mois</option>
+                </select>
+            </fieldset>
 
-                        <!-- À changer par Json -->
-                        <label for="pays">Pays :</label>
-                        <select id="pays" name="pays" autocomplete="country-name">
-                            <option value="choisir" disabled selected>Choisir un pays</option>
-                            <option value="canada">Canada</option>
-                            <option value="etatsunis">États-Unis</option>
-                            <option value="france">France</option>
-                            <option value="mexique">Mexique</option>
-                        </select>
+            <!-- Étape 2 de 4 -->
+            <fieldset id="etape2" class="cacher">
+                <legend>Informations personnelles</legend>
 
-                        <!-- À changer par Json -->
-                        <label for="province">Province :</label>
-                        <select id="province" name="province">
+                <!-- Informations personnelles -->
+                <label for="prenom" class="formulaire__label formulaire__label--prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" autocomplete="given-name" pattern="^[a-zA-ZÀ-ÿ' -]+$"
+                    aria-describedby="erreur-prenom" class="formulaire__champ formulaire__champ--prenom" required>
+                <div id="erreur-prenom" class="erreur" aria-live="polite"></div>
+
+                <label for="nom" class="formulaire__label formulaire__label--nom">Nom :</label>
+                <input type="text" id="nom" name="nom" autocomplete="family-name" pattern="^[a-zA-ZÀ-ÿ' -]+$"
+                    aria-describedby="erreur-nom" class="formulaire__champ formulaire__champ--nom" required>
+                <div id="erreur-nom" class="erreur" aria-live="polite"></div>
+
+                <label for="courriel" class="formulaire__label formulaire__label--courriel">Courriel :</label>
+                <input type="email" id="courriel" name="courriel" autocomplete="email"
+                    pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" aria-describedby="erreur-courriel"
+                    class="formulaire__champ formulaire__champ--courriel" required>
+                <div id="erreur-courriel" class="erreur" aria-live="polite"></div>
+
+                <label for="telephone" class="formulaire__label formulaire__label--telephone">Numéro de
+                    téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="(xxx) xxx-xxxx" autocomplete="tel"
+                    pattern="^\(?([0-9]{3})\)?[ ]?([0-9]{3})[-]?([0-9]{4})$"
+                    class="formulaire__champ formulaire__champ--telephone" required>
+
+
+                <h3>Adresse postale</h3>
+                <!-- Adresse postale -->
+                <!-- Fieldset à revoir -->
+                <label for="adresse" class="formulaire__label formulaire__label--adresse">Adresse municipale</label>
+                <input type="text" id="adresse" name="adresse" class="formulaire__champ formulaire__champ--adresse"
+                    required>
+
+                <div class="formulaire__champ__petit__grille">
+                    <div class="formulaire__champ__bloc">
+                        <label for="ville" class="formulaire__label">Ville :</label>
+                        <input type="text" id="ville" name="ville"
+                            class="formulaire__champ__petit formulaire__champ__petit--ville" required>
+                    </div>
+
+                    <!-- À changer par Json -->
+                    <div class="formulaire__champ__bloc">
+                        <label for="province" class="formulaire__label">Province :</label>
+                        <select id="province" name="province"
+                            class="formulaire__champ__petit formulaire__champ__petit--province">
                             <option value="choisir" disabled selected>Choisir une province</option>
                             <option value="alberta">Alberta</option>
                             <option value="colombiebritanique">Colombie-Britanique</option>
@@ -151,64 +167,162 @@
                             <option value="terreneuve">Terre-Neuve</option>
                             <option value="territoiredunordouest">Territoire du Nord-Ouest</option>
                             <option value="yukon">Yukon</option>
+                            
                         </select>
+                    </div>
 
-                            <label for="codepostal">Code postal :</label>
-                            <input type="text" id="codepostal" name="codepostal" 
-                                placeholder="A1A 1A1" autocomplete="postal-code" pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" maxlength="7" required>
-                                <div id="erreurPostal" class="erreur" aria-live="polite"></div>
+                    <!-- À changer par Json -->
+                    <div class="formulaire__champ__bloc">
+                        <label for="pays" class="formulaire__label">Pays :</label>
+                        <select id="pays" name="pays" class="formulaire__champ__petit formulaire__champ__petit--pays">
+                            <option value="choisir" disabled selected>Choisir un pays</option>
+                            <option value="canada">Canada</option>
+                            <option value="etatsunis">États-Unis</option>
+                            <option value="france">France</option>
+                            <option value="mexique">Mexique</option>
+                        </select>
+                    </div>
+
+                    <div class="formulaire__champ__bloc">
+                        <label for="codepostal" class="formulaire__label">Code postal :</label>
+                        <input type="text" id="codepostal" name="codepostal" placeholder="A1A 1A1"
+                            class="formulaire__champ__petit formulaire__champ__petit--codepostal" required>
+                    </div>
+                </div>
             </fieldset>
 
-            <fieldset class="cacher">
-                    <!-- Étape 3 de 4 -->
-                    <legend><h2>Payement</h2></legend> 
 
-                            <input type="radio" id="carteCreditBouton" name="carteCreditBouton" value="carteCreditBouton" checked>
-                            <label for="carteCreditBouton">Carte de crédit</label>
-                            <div id="erreurCredit" class="erreur" aria-live="polite"></div>
+            <fieldset id="etape3" class="cacher">
+                <!-- Étape 3 de 4 -->
+                <legend>Paiement</legend>
 
-                            <label for="nomCarte">Nom du titulaire de la carte:</label>
-                            <input type="text" id="nomCarte" name="nomCarte" pattern="^[a-zA-ZÀ-ÿ]+$"
-                                    autocomplete="cc-name" required>
-                                    <div id="erreurNomCarte" class="erreur" aria-live="polite"></div>
+                <!-- Bouton radio pour choisir le type de paiement -->
+                <input type="radio" id="carteCreditBouton" name="carteCreditBouton" value="carteCreditBouton"
+                    aria-describedby="erreurCredit">
+                <label for="carteCreditBouton" class="formulaire__label formulaire__label--carteCreditBouton">Carte de
+                    crédit</label>
+                <div id="erreurCredit" class="erreur" aria-live="polite"></div>
 
-                            <label for="carteCredit">Numéro de carte de crédit :</label>
-                            <input type="tel" inputmode="numeric" name="carteCredit" id="carteCredit"
-                                    pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" autocomplete="cc-number" maxlength="19" required>
-                                    <div id="erreurNumero" class="erreur" aria-live="polite"></div>
-        
-                            <label for="dateExpiration">Date d'expiration :</label>
-                            <input type="month" id="dateExpiration" name="dateExpiration" 
-                                    min="2024-06" autocomplete="cc-exp" required>
-                                    <div id="erreurExpiration" class="erreur" aria-live="polite"></div>
-        
-                            <label for="codeVerification">Code de vérification :</label>
-                            <input type="text" id="codeVerification" name="codeVerification" 
-                                    autocomplete="cc-csc" pattern="\d{3,4}" maxlength="4" required>
-                                    <div id="erreurCode" class="erreur" aria-live="polite"></div>
+                <input type="radio" id="virementBouton" name="virementBouton" value="virementBouton"
+                    aria-describedby="erreurCredit">
+                <label for="virementBouton" class="formulaire__label">Virement bancaire</label>
+                <div id="erreurVirement" class="erreur" aria-live="polite"></div>
 
-                        <h3> Détails de facturation </h3>
-                            <input type="checkbox" id="verificationUn" name="verifications" value="verificationUn" required>
-                            <label for="verificationUn">Mon adresse de facturation est la même que mon adresse postale.</label>
 
-                            <input type="checkbox" id="verificationDeux" name="verifications" value="verificationDeux" required>
-                            <label for="verificationDeux">J'accepte les conditions d'utilisation.</label>
+                <!-- Informations de paiement -->
+                <label for="nomCarte" class="formulaire__label">Nom du titulaire de la carte :</label>
+                <input type="text" id="nomCarte" name="nomCarte" pattern="^[a-zA-ZÀ-ÿ' -]+$" autocomplete="cc-name"
+                    aria-describedby="erreurNomCarte"
+                    class="formulaire__champ formulaire__champ__petit formulaire__champ--nomCarte" required>
+                <div id="erreurNomCarte" class="erreur" aria-live="polite"></div>
+
+
+                <label for="carteCredit" class="formulaire__label">Numéro de carte de crédit :</label>
+                <input type="tel" inputmode="numeric" name="carteCredit" id="carteCredit"
+                    pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" autocomplete="cc-number" maxlength="19"
+                    aria-describedby="erreurNumero"
+                    class="formulaire__champ formulaire__champ__petit formulaire__champ--numeroCarte" required>
+                <div id="erreurNumero" class="erreur" aria-live="polite"></div>
+
+
+                <!-- Information carte de crédit -->
+                <div class="formulaire__champ__petit__grille">
+                    <div class="formulaire__champ__bloc">
+                        <label for="dateExpiration" class="formulaire__label">Date d'expiration :</label>
+                        <input type="month" id="dateExpiration" name="dateExpiration" min="2024-06"
+                            autocomplete="cc-exp" aria-describedby="erreurExpiration"
+                            class="formulaire__champ__petit formulaire__champ__petit--expiration" required>
+                        <div id="erreurExpiration" class="erreur" aria-live="polite"></div>
+                    </div>
+
+                    <div class="formulaire__champ__bloc">
+                        <label for="codeVerification" class="formulaire__label">Code de vérification :</label>
+                        <input type="text" id="codeVerification" name="codeVerification" autocomplete="cc-csc"
+                            pattern="\d{3,4}" maxlength="4" aria-describedby="erreurCode"
+                            class="formulaire__champ__petit formulaire__champ__petit--cvv" required>
+                        <div id="erreurCode" class="erreur" aria-live="polite"></div>
+                    </div>
+                </div>
+
+
+                <h3>Détails de facturation</h3>
+                <!-- Détails de facturation -->
+                <input type="checkbox" id="verificationUn" name="verifications" value="verificationUn" required>
+                <label for="verificationUn" class="formulaire__label formulaire__label--conditions">
+                    Mon adresse de facturation est la même que mon adresse postale.
+                </label>
+
+                <input type="checkbox" id="verificationDeux" name="verifications" value="verificationDeux" required>
+                <label for="verificationDeux" class="formulaire__label formulaire__label--conditions">
+                    J'accepte les conditions d'utilisation.
+                </label>
             </fieldset>
 
-            <fieldset class="cacher">
-                    <!-- Étape 4 de 4 -->
-                    <legend> <h2>Résumé des informations</h2></legend> 
-                    <p> Mettre infos client ici</p>
-                    
+
+            <fieldset id="etape4" class="cacher">
+
+                <!-- Étape 4 de 4 -->
+                <legend>Résumé des informations</legend>
+
+                <!-- Résumé des dons -->
+                <div id="resumeDon" class="resume">
+                    <h2>Résumé des informations</h2>
+                    <p>Montant du don souhaité: <span id="montantResume"></span></p>
+                    <p>Type du don : <span id="frequenceResume"></span></p>
+                </div>
+
+                <!-- Résumé des coordonnées -->
+                <div id="resumeCoordonnees" class="resume">
+                    <h3>Informations personnelles</h3>
+
+                    <p>Prénom : <span id="prenomResume"></span></p>
+                    <p>Nom : <span id="nomResume"></span></p>
+                    <p>Téléphone : <span id="telephoneResume"></span></p>
+                    <p>Ville : <span id="villeResume"></span></p>
+                    <p>Pays : <span id="paysResume"></span></p>
+                    <p>Code postal : <span id="codepostalResume"></span></p>
+                    <p>Adresse : <span id="adresseResume"></span></p>
+                </div>
+
+                <!-- Résumé des paiements -->
+                <div id="resumePaiement" class="resume">
+                    <h3>Détails de paiement</h3>
+                    <p>Nom du titulaire de la carte : <span id="nomCarteResume"></span></p>
+                    <p>Numéro de carte de crédit : <span id="carteCreditResume"></span></p>
+                </div>
             </fieldset>
 
-        <div>
-                <!-- Boutons de navigation -->
-                <input type="submit" id="soumettre" name="soumettre" value="Soumettre le don" class="cacher">
-                <input type="button" id="precedent" name="precedent" value="Précédent">
-                <input type="button" id="suivant" name="suivant" value="Suivant">
-        </div>
-    </form>
+            <!-- Boutons de navigation -->
+            <div class="formulaire__Zone-boutons">
+                <button type="button" class="formulaire__Zone-boutons-bleu-button__modifier" id="modifier"
+                    name="modifier" value="Modifier">
+                    Modifier
+                </button>
+
+                <div class="formulaire__Zone-boutons-bleu">
+                    <button type="submit" class="formulaire__Zone-boutons-bleu-button" id="soumettre" name="soumettre"
+                        value="Soumettre le don" class="cacher">
+                        Envoyer
+                        <img src="../public/img/fleche.svg" alt="" class="formulaire__Zone-boutons-bleu-button__icon">
+                    </button>
+
+                    <button type="button" class="formulaire__Zone-boutons-bleu-button" id="precedent"
+                            name="precedent" value="Précédent">
+                            <img src="../public/img/fleche.svg" alt=""
+                                class="formulaire__Zone-boutons-bleu-button__icon__precedent">
+                            Précédent
+                    </button>
+
+                    <button type="button" class="formulaire__Zone-boutons-bleu-button" id="suivant" name="suivant"
+                            value="Suivant">
+                            Suivant
+                            <img src="../public/img/fleche.svg" alt=""
+                                class="formulaire__Zone-boutons-bleu-button__icon">
+                    </button>
+                </div>
+            </div>
+        </form>
     </main>
 </body>
+
 </html>
