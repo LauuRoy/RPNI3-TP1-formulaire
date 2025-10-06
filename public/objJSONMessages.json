@@ -1,4 +1,4 @@
-  {
+{
     "prenom": {
         "vide": "Vous devez entrer votre prénom.",
         "pattern": "Pour le prénom, les accents français, les espaces, les tirets et les apostrophes sont permis.",
@@ -13,5 +13,21 @@
         "vide": "Vous devez entrer votre adresse courriel.",
         "pattern": "Assurez-vous d'entrer une adresse courriel valide.",
         "type": "L'adresse courriel doit être une chaîne de caractères."
+    },
+    "nomCarte": {
+        "vide": "Vous devez entrer le nom sur la carte.",
+        "pattern": "Pour le nom sur la carte, les accents français, les espaces, les tirets et les apostrophes sont permis.",
+        "type": "Le nom sur la carte doit être une chaîne de caractères."
+    },
+    "carteCredit": {
+        "vide": "Veuillez entrer le numéro de la carte.",
+        "pattern": "Numéro de carte invalide."
+    },
+    "dateExpiration": {
+        "vide": "Veuillez entrer la date d'expiration."
+    },
+    "codeVerification": {
+        "vide": "Veuillez entrer le code de vérification.",
+        "pattern": "Le code doit être de 3 ou 4 chiffres."
     }
 }

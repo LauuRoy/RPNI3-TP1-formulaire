@@ -36,13 +36,14 @@
 /** UTILITAIRES **/
 @use "utilitaires/variables";
 @use "utilitaires/mixins";
+@use "utilitaires/cacher";
 
 /** BASE **/
 @use "base/bouton";
 @use "base/hyperlien";
 @use "base/typo";
 @use "base/grille";
-@use "modules/formulaire"
+
 
 /** MODULES **/
-
+@use "modules/formulaire";

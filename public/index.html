@@ -3,7 +3,6 @@
  2. Message d'erreurs (Ne rentre pas dans la boucle pour paiement)
  3. Navigation entre les étapes 
  4. Ajustement css à quelques endroits
- 5. Décocher boutons
 -->
 
 
@@ -19,6 +18,7 @@
     <title>Formulaire de don MudGirl</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
     <link rel="stylesheet" href="css/styles.css">
+
     <script src="js/script.js" defer></script>
 </head>
 
@@ -198,31 +198,26 @@
 
                 <!-- Bouton radio pour choisir le type de paiement -->
                 <input type="radio" id="carteCreditBouton" name="carteCreditBouton" value="carteCreditBouton"
-                    aria-describedby="erreurCredit">
+                    aria-describedby="erreurCredit" checked>
                 <label for="carteCreditBouton" class="formulaire__label formulaire__label--carteCreditBouton">Carte de
                     crédit</label>
-                <div id="erreurCredit" class="erreur" aria-live="polite"></div>
-
-                <input type="radio" id="virementBouton" name="virementBouton" value="virementBouton"
-                    aria-describedby="erreurCredit">
-                <label for="virementBouton" class="formulaire__label">Virement bancaire</label>
-                <div id="erreurVirement" class="erreur" aria-live="polite"></div>
 
 
+        
                 <!-- Informations de paiement -->
                 <label for="nomCarte" class="formulaire__label">Nom du titulaire de la carte :</label>
                 <input type="text" id="nomCarte" name="nomCarte" pattern="^[a-zA-ZÀ-ÿ' -]+$" autocomplete="cc-name"
-                    aria-describedby="erreurNomCarte"
+                    aria-describedby="erreur-nomCarte"
                     class="formulaire__champ formulaire__champ__petit formulaire__champ--nomCarte" required>
-                <div id="erreurNomCarte" class="erreur" aria-live="polite"></div>
+                <div id="erreur-nomCarte" class="erreur" aria-live="polite"></div>
 
 
                 <label for="carteCredit" class="formulaire__label">Numéro de carte de crédit :</label>
                 <input type="tel" inputmode="numeric" name="carteCredit" id="carteCredit"
-                    pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" autocomplete="cc-number" maxlength="19"
-                    aria-describedby="erreurNumero"
+                    pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" autocomplete="cc-number" minlength="16" maxlength="19"
+                    aria-describedby="erreur-carteCredit"
                     class="formulaire__champ formulaire__champ__petit formulaire__champ--numeroCarte" required>
-                <div id="erreurNumero" class="erreur" aria-live="polite"></div>
+                <div id="erreur-carteCredit" class="erreur" aria-live="polite"></div>
 
 
                 <!-- Information carte de crédit -->
@@ -230,17 +225,17 @@
                     <div class="formulaire__champ__bloc">
                         <label for="dateExpiration" class="formulaire__label">Date d'expiration :</label>
                         <input type="month" id="dateExpiration" name="dateExpiration" min="2024-06"
-                            autocomplete="cc-exp" aria-describedby="erreurExpiration"
+                            autocomplete="cc-exp" aria-describedby="erreur-dateExpiration"
                             class="formulaire__champ__petit formulaire__champ__petit--expiration" required>
-                        <div id="erreurExpiration" class="erreur" aria-live="polite"></div>
+                        <div id="erreur-dateExpiration" class="erreur" aria-live="polite"></div>
                     </div>
 
                     <div class="formulaire__champ__bloc">
                         <label for="codeVerification" class="formulaire__label">Code de vérification :</label>
                         <input type="text" id="codeVerification" name="codeVerification" autocomplete="cc-csc"
-                            pattern="\d{3,4}" maxlength="4" aria-describedby="erreurCode"
+                            pattern="\d{3,4}" maxlength="4" aria-describedby="erreur-codeVerification"
                             class="formulaire__champ__petit formulaire__champ__petit--cvv" required>
-                        <div id="erreurCode" class="erreur" aria-live="polite"></div>
+                        <div id="erreur-codeVerification" class="erreur" aria-live="polite"></div>
                     </div>
                 </div>
 

@@ -67,20 +67,89 @@
   box-sizing: border-box;
 }
 
-.cacher {
-  display: none;
+main {
+  margin: 10px;
+  text-align: center;
+}
+main__titre {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400rem;
+  font-style: normal;
 }
 
-.hors-ecran {
+#etape1 {
+  border: none;
+}
+
+#etape3 {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+input[type=radio] {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type=radio] + label {
+  border-radius: 8px;
+  background: #D764A1;
+  display: inline-block;
+  color: white;
+  font-family: "Inter", sans-serif;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: 1px inset #BF387A;
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  input[type=radio] + label {
+    width: 280px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+}
+input[type=radio]:checked + label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+input[name=montant] + label {
+  width: 180px;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+input[name=montant]:checked + label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+label[for=autreMontant] {
+  display: block;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  max-width: 366px;
+}
+
+input[type=checkbox] {
+  position: static;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  justify-content: flex-start;
 }
 
 .header {
@@ -101,16 +170,6 @@
   margin-top: 3.5vh;
 }
 
-main {
-  margin: 10px;
-  text-align: center;
-}
-main__titre {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 40rem;
-  font-style: normal;
-}
-
 .etapes__liste {
   list-style: none;
   display: flex;
@@ -129,15 +188,6 @@ main__titre {
 }
 .etapes__liste__elements__item--active {
   color: #9D339E;
-}
-
-#etape1 {
-  border: none;
-}
-
-#etape3 {
-  padding-left: 22px;
-  padding-right: 22px;
 }
 
 .formulaire fieldset {
@@ -251,62 +301,6 @@ main__titre {
     margin-right: auto;
   }
 }
-input[type=radio] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-input[type=radio] + label {
-  border-radius: 8px;
-  background: #D764A1;
-  display: inline-block;
-  color: white;
-  font-family: "Inter", sans-serif;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border: 1px inset #BF387A;
-  display: block;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-}
-
-@media (min-width: 800px) {
-  input[type=radio] + label {
-    width: 280px;
-    margin-left: auto;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    display: inline-block;
-  }
-}
-input[type=radio]:checked + label {
-  background: #A61461;
-  outline: 3px solid #771A47;
-}
-
-input[name=montant] + label {
-  width: 180px;
-  margin-right: 5px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-input[name=montant]:checked + label {
-  background: #A61461;
-  outline: 3px solid #771A47;
-}
-
-label[for=autreMontant] {
-  display: block;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  max-width: 366px;
-}
-
 .autreMontant {
   display: block;
   width: 90%;
@@ -334,16 +328,6 @@ label[for=autreMontant] {
   border: 1px solid #000000;
   height: 40px;
   background-size: 20px 20px;
-}
-
-input[type=checkbox] {
-  position: static;
-  opacity: 1;
-  width: auto;
-  height: auto;
-  margin-right: 8px;
-  vertical-align: middle;
-  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=formulaire.css.map */

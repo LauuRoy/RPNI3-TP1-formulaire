@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// STYLE GLOBAL POUR LE MAIN
+// Applique à toutes les balises dans le main une marge de 10px et un texte centré
+main {
+  margin: 10px;
+  text-align: center;
+
+// Change le style et la grosseur de la fonte du titre principal
+  &__titre {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400rem;
+    font-style: normal;
+  }
+}
+
+// STYLE SPÉCIFIQUE POUR LES ÉTAPES 1 ET 3
+// Retire la bordure du fieldset de l'étape 1
+#etape1 {
+  border: none;
+}
+
+// Ajoute du padding gauche et droite au fieldset de l'étape 3
+#etape3 {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+// STYLE GLOBAL POUR LES BOUTONS RADIO ET CHECKBOX
+// Cache les boutons radios pour que seulement les labels soient visibles
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Style les labels associés aux boutons radios pour qu'ils ressemblent à des boutons
+input[type=radio]+label {
+  border-radius: 8px;
+  background: #D764A1;
+  display: inline-block;
+  color: white;
+  font-family: "Inter", sans-serif;
+  padding: 10px 20px;
+  margin-top: 15px;
+
+  border: 1px inset #BF387A;
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+// Media query pour les écrans de 800px et plus | Réduit la largeur des labels pour qu'ils soient côte à côte
+@media (min-width: 800px) {
+  input[type=radio]+label {
+    width: 280px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+}
+
+// État selectionné d'un bouton radio | change le fond et ajoute un outline
+input[type=radio]:checked+label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+// Style pour les boutons de montant | Permet d'avoir des boutons alignés
+input[name="montant"]+label {
+  width: 180px;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+// État selectionné d'un bouton montant | change le fond et ajoute un outline
+input[name="montant"]:checked+label {
+  background: #A61461;
+  outline: 3px solid #771A47;
+}
+
+
+// Style pour le label de l'input autre montant | Permet d'avoir le label au-dessus de l'input
+label[for="autreMontant"] {
+  display: block;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  max-width: 366px;
+}
+
+// Style pour le checkbox des détails de facturation | Permet d'avoir le label à côté du checkbox
+input[type="checkbox"] {
+  position: static;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  justify-content: flex-start;
+
+}

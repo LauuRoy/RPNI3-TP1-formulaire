@@ -2,6 +2,7 @@
 @use "../utilitaires/variables";
 
 .formulaire__Zone-boutons{
+  
   &-bleu{
     display: flex;
     justify-content: space-around;
@@ -55,21 +56,3 @@
   }}
   }}
     
-
-  
-  // &--hover {
-  //   background-color: color.adjust(variables.$vertLime, $alpha: -0.25);
-  // }
-  // &--active {
-  //   background-color: color.adjust(variables.$vertLime, $alpha: -0.5);
-  // }
-  // &--inverse {
-  //   background-color: white;
-  //   border: 2px solid variables.$vertLime;
-  //   &--hover {
-  //     border-color: color.adjust(variables.$vertLime, $alpha: -0.25);
-  //   }
-  //   &--active {
-  //     border-color: color.adjust(variables.$vertLime, $alpha: -0.5);
-  //   }
-  // }

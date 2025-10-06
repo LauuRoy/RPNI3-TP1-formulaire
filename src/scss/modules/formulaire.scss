@@ -1,29 +1,8 @@
 // Css Utilitaire
 @use "../base/bouton";
+@use "../base/base";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.cacher {
-  display: none;
-}
-
-.hors-ecran {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
-// Css Global
+// STYLE POUR LE HEADER
 .header {
   background-color: #0C0149;
   height: 200px;
@@ -31,13 +10,14 @@
   text-align: center;
   align-items: center;
 
-
+// Banderole de couleur au-dessus de la page
   &__banderole {
     background-image: linear-gradient(to right, #7B2DC3, #9D339E, #F33E4E);
     height: 55px;
     width: 100%;
   }
 
+// Alignement du logo + grosseur
   &__logo {
     max-width: 200px;
     object-fit: cover;
@@ -45,18 +25,8 @@
   }
 }
 
-main {
-  margin: 10px;
-  text-align: center;
-
-  &__titre {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 40rem;
-    font-style: normal;
-  }
-}
-
-// Étapes
+// STYLE POUR LES ÉTAPES
+// Permet d'avoir les étapes en ligne et de les espacer sans avoir les puces de la liste
 .etapes {
   &__liste {
     list-style: none;
@@ -66,11 +36,13 @@ main {
 
     &__elements {
 
+      // Permet d'avoir le curseur quand on passe sur les étapes et de souligner l'étape active
       &__item {
         color: black;
         text-decoration: underline;
         cursor: pointer;
 
+        // Permet de désactiver le curseur, de griser les étapes inactives et de retirer le soulignement
         &--inactive {
           color: black;
           pointer-events: none;
@@ -78,6 +50,7 @@ main {
           text-decoration: none;
         }
 
+        // Permet de colorer l'étape active
         &--active {
           color: #9D339E;
         }
@@ -86,20 +59,13 @@ main {
   }
 }
 
-#etape1 {
-  border: none;
-}
-
-#etape3 {
-  padding-left: 22px;
-  padding-right: 22px;
-}
-
-//Formulaire
+// STYLE POUR LES FIELDSETS FORMULAIRE
+// Permet d'avoir des marges en haut des fieldsets
 .formulaire fieldset {
   margin-top: 20px;
 }
 
+// Permet d'avoir un max-width sur les fieldsets et de les centrer lorsque l'écran est plus large que 600px
 @media (min-width: 600px) {
   .formulaire fieldset {
     max-width: 700px;
@@ -108,6 +74,8 @@ main {
   }
 }
 
+// STYLE POUR LES CHAMPS DU FORMULAIRE
+// Permet d'avoir un max-width sur les champs, de les arrondir et de les centrer 
 .formulaire__champ {
   display: block;
   width: 90%;
@@ -120,6 +88,7 @@ main {
   border: 1px solid #000000;
   height: 40px;
 
+  // Permet d'avoir une icône à droite du champ selon le type de champ
   &--prenom {
     background: url("/public/img/individu.svg") no-repeat right center;
     background-size: 25px 25px;
@@ -148,6 +117,7 @@ main {
 
 }
 
+// style des petits champs (cvv et expiration)
 .formulaire__champ__petit__grille {
   display: flex;
   flex-wrap: wrap;
@@ -159,6 +129,7 @@ main {
   padding-right: 22px;
 }
 
+// Permet de centrer les champs lorsque l'écran est plus large que 600px
 @media (min-width: 600px) {
 
   .formulaire__champ,
@@ -195,11 +166,13 @@ main {
   }
 }
 
+// LABELS
 .formulaire__label {
   display: block;
   text-align: left;
   margin-top: 15px;
 
+  // Permet d'avoir des marges à gauche pour certains labels (pour les aligner avec les champs)
   &--nom,
   &--prenom,
   &--courriel,
@@ -218,6 +191,7 @@ main {
   }
 }
 
+// Permet de centrer les labels lorsque l'écran est plus large que 600px
 @media (min-width: 600px) {
   .formulaire__label {
     text-align: center;
@@ -226,66 +200,8 @@ main {
   }
 }
 
-// Input et montant
-input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-input[type=radio]+label {
-  border-radius: 8px;
-  background: #D764A1;
-  display: inline-block;
-  color: white;
-  font-family: "Inter", sans-serif;
-  padding: 10px 20px;
-  margin-top: 15px;
-
-  border: 1px inset #BF387A;
-  display: block;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-}
-
-@media (min-width: 800px) {
-  input[type=radio]+label {
-    width: 280px;
-    margin-left: auto;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    display: inline-block;
-  }
-}
-
-input[type=radio]:checked+label {
-  background: #A61461;
-  outline: 3px solid #771A47;
-}
-
-input[name="montant"]+label {
-  width: 180px;
-  margin-right: 5px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-input[name="montant"]:checked+label {
-  background: #A61461;
-  outline: 3px solid #771A47;
-}
-
-label[for="autreMontant"] {
-  display: block;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  max-width: 366px;
-}
-
+// CHAMPS SUPPLÉMENTAIRES
+// Permet d'avoir un champ plus large pour le montant personnalisé + une icône
 .autreMontant {
   display: block;
   width: 90%;
@@ -302,6 +218,7 @@ label[for="autreMontant"] {
   background-size: 20px 20px;
 }
 
+// Permet d'avoir un champ plus large pour la fréquence (lorsque l'utilisateur choisit un don fréquent)
 .frequence {
   width: 90%;
   max-width: 366px;
@@ -313,15 +230,4 @@ label[for="autreMontant"] {
   border: 1px solid #000000;
   height: 40px;
   background-size: 20px 20px;
-}
-
-input[type="checkbox"] {
-  position: static;
-  opacity: 1;
-  width: auto;
-  height: auto;
-  margin-right: 8px;
-  vertical-align: middle;
-  justify-content: flex-start;
-
 }
